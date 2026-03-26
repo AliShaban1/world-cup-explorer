@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The World Cup Atlas</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Barlow+Condensed:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===== MAP VIEW ===== -->
+    <div id="map-view">
+      <header id="header">
+        <h1>The World Cup Atlas</h1>
+        <p class="subtitle">
+          Explore every FIFA Men's World Cup from 1930 to 2022. Click a host
+          nation to dive in.
+        </p>
+      </header>
+
+      <div id="era-legend">
+        <div class="era-item">
+          <div class="era-dot" style="background: var(--era-1)"></div>
+          1930–1950
+        </div>
+        <div class="era-item">
+          <div class="era-dot" style="background: var(--era-2)"></div>
+          1954–1970
+        </div>
+        <div class="era-item">
+          <div class="era-dot" style="background: var(--era-3)"></div>
+          1974–1990
+        </div>
+        <div class="era-item">
+          <div class="era-dot" style="background: var(--era-4)"></div>
+          1994–2006
+        </div>
+        <div class="era-item">
+          <div class="era-dot" style="background: var(--era-5)"></div>
+          2010–2022
+        </div>
+      </div>
+
+      <div id="map-container"></div>
+      <div class="zoom-hint">
+        Scroll to zoom · Drag to pan · Double-click to reset
+      </div>
+
+      <div id="timeline-container">
+        <div id="timeline"></div>
+      </div>
+
+      <div id="analytics-panel">
+        <div id="analytics-header">
+          <h2>World Cup by the Numbers</h2>
+          <p>Patterns and trends across 92 years of football history</p>
+        </div>
+        <div id="analytics-grid">
+          <section id="trend-section">
+            <h3>Goals Per Match Over Time</h3>
+            <div id="goals-trend-chart"></div>
+          </section>
+          <section id="all-time-section">
+            <h3>All-Time Dominance</h3>
+            <div id="all-time-chart"></div>
+          </section>
+          <section id="intensity-section">
+            <h3>Are World Cups Getting More Aggressive?</h3>
+            <p class="section-desc">
+              Cards per match rose steadily from their introduction in 1970, peaking at 2006 — infamously home to the "Battle of Nuremberg." Since then, aggression has declined as FIFA tightened disciplinary standards.
+            </p>
+            <div id="intensity-chart"></div>
+          </section>
+          <section id="continental-section">
+            <h3>Continental Advantage</h3>
+            <p class="section-desc">
+              Does geography decide who lifts the trophy? When the World Cup is hosted in the Americas or Europe, the winner almost always comes from that same continent.
+            </p>
+            <div id="continental-chart"></div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== COUNTRY VIEW (hidden initially) ===== -->
+    <div id="country-view" class="hidden">
+      <nav id="country-nav">
+        <button id="country-back-btn">← Back to Map</button>
+      </nav>
+
+      <div id="country-zoomed-map"></div>
+
+      <div id="country-header"></div>
+
+      <div id="tournament-cards"></div>
+    </div>
+
+    <!-- ===== DASHBOARD VIEW (hidden initially) ===== -->
+    <div id="dashboard-view" class="hidden">
+      <nav id="dashboard-nav">
+        <button id="back-btn">← Back to Map</button>
+      </nav>
+
+      <div id="tournament-header"></div>
+
+      <div id="dashboard-grid">
+        <section id="insights-section">
+          <h2>Tournament Insights</h2>
+          <div id="insights-container"></div>
+        </section>
+        <section id="teams-section">
+          <h2>Qualified Teams</h2>
+          <div id="teams-grid"></div>
+        </section>
+
+        <section id="scorers-section">
+          <h2>Top Scorers</h2>
+          <div id="top-scorers"></div>
+        </section>
+
+        <section id="groups-section">
+          <h2>Group Stage</h2>
+          <div id="groups-container"></div>
+        </section>
+
+        <section id="bracket-section">
+          <h2>Knockout Stage</h2>
+          <div id="bracket-container"></div>
+        </section>
+
+        <section id="matches-section">
+          <h2>All Matches</h2>
+          <div id="stage-filter"></div>
+          <div id="matches-list"></div>
+        </section>
+      </div>
+    </div>
+
+    <!-- ===== TOOLTIP ===== -->
+    <div id="tooltip"></div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      Data:
+      <a href="https://github.com/jfjelstul/worldcup" target="_blank"
+        >The Fjelstul World Cup Database</a
+      >
+      by Joshua C. Fjelstul, Ph.D. (CC-BY-SA 4.0)
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3"></script>
+    <script src="js/map.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/analytics.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
