@@ -289,21 +289,6 @@ function renderZoomedMapTo(containerSelector, tournament, data) {
         .transition().duration(900).ease(d3.easeCubicInOut)
         .attr("d", d => endPath(d));
 
-    const hostName = tournament.host_country.includes("Korea") ? "South Korea & Japan" : tournament.host_country;
-    const centroid = d3.geoCentroid(hostCollection);
-    const [cx, cy] = endProjection(centroid);
-
-    const hostBounds = endPath.bounds(hostCollection);
-    const hostSize = Math.min(hostBounds[1][0] - hostBounds[0][0], hostBounds[1][1] - hostBounds[0][1]);
-    const fontSize = Math.max(8, Math.min(18, hostSize * 0.08));
-
-    svg.append("text")
-        .attr("class", "zoomed-country-label")
-        .attr("x", cx).attr("y", cy)
-        .attr("font-size", fontSize + "px")
-        .text(hostName)
-        .style("opacity", 0)
-        .transition().delay(700).duration(400).style("opacity", 0.5);
 }
 
 function goBackToMap() {
