@@ -390,7 +390,7 @@ function renderContinentalAdvantage(data) {
         .style("display", "block")
         .style("margin", "0 auto");
 
-    const leftX = 200, rightX = 610;
+    const leftX = 230, rightX = 640;
     const nodeW = 18;
     const totalH = 200;
     const topPad = 35;

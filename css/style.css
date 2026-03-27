@@ -837,13 +837,6 @@ body {
     color: var(--warm-gold);
 }
 
-.bracket-connector {
-    width: 24px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-}
-
 .bracket-extra {
     text-align: center;
     font-size: 0.6rem;
@@ -1358,17 +1351,17 @@ body {
 }
 
 .insight-positive {
-    color: #5fd89a;
+    color: var(--warm-gold-light);
     font-weight: 600;
 }
 
 .insight-negative {
-    color: var(--warm-red);
+    color: var(--warm-gold);
     font-weight: 600;
 }
 
 .insight-highlight {
-    color: var(--warm-gold);
+    color: var(--warm-gold-light);
     font-weight: 600;
 }
 
