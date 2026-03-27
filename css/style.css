@@ -99,13 +99,13 @@ body {
 
 #map-container {
     max-width: 1600px;
-    margin: 0.5rem auto;
-    padding: 0 1rem;
+    margin: 0.2rem auto;
+    padding: 2rem 6rem;
+    overflow: hidden;
 }
 
 #map-container svg {
     width: 100%;
-    height: auto;
     display: block;
     cursor: grab;
 }
@@ -134,7 +134,7 @@ body {
 }
 
 #country-view {
-    min-height: calc(100vh - 5rem);
+    min-height: calc(100vh - 7rem);
 }
 
 #country-nav {

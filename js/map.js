@@ -45,7 +45,7 @@ function getHostCountryIds(t) {
 
 function initMap(data) {
     const width = 1100;
-    const height = 620;
+    const height = 520;
     globalData = data;
 
     const svg = d3.select("#map-container")
@@ -128,6 +128,11 @@ function initMap(data) {
 
     const zoom = d3.zoom()
         .scaleExtent([1, 8])
+        .translateExtent([[0, 0], [width, height]])
+        .filter((event) => {
+            if (event.type === "wheel") return event.ctrlKey || event.metaKey;
+            return true;
+        })
         .on("zoom", (event) => {
             const { transform } = event;
             const k = transform.k;
@@ -158,8 +163,8 @@ function setupTimeline(data, g) {
         .on("mouseover", function(event, d) {
             d3.select("#tooltip")
                 .style("display", "block")
-                .style("left", (event.clientX + 10) + "px")
-                .style("top", (event.clientY - 40) + "px")
+                .style("left", (event.clientX + 15) + "px")
+                .style("top", (event.clientY - 70) + "px")
                 .html(`<strong>${d.year}</strong> · ${d.host_country}<br>Winner: ${d.winner}`);
 
             const ids = new Set(getHostCountryIds(d).map(String));
