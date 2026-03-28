@@ -1,8 +1,26 @@
 function initAnalytics(data) {
-    renderGoalsTrend(data);
-    renderAllTimeDominance(data);
-    renderIntensityTrend(data);
-    renderContinentalAdvantage(data);
+    const sections = [
+        { id: "trend-section", render: () => renderGoalsTrend(data) },
+        { id: "all-time-section", render: () => renderAllTimeDominance(data) },
+        { id: "intensity-section", render: () => renderIntensityTrend(data) },
+        { id: "continental-section", render: () => renderContinentalAdvantage(data) }
+    ];
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const section = sections.find(s => s.id === entry.target.id);
+            if (section && !section.rendered) {
+                section.rendered = true;
+                section.render();
+            }
+        });
+    }, { threshold: 0.15 });
+
+    sections.forEach(s => {
+        const el = document.getElementById(s.id);
+        if (el) observer.observe(el);
+    });
 }
 
 function renderGoalsTrend(data) {
@@ -77,7 +95,7 @@ function renderGoalsTrend(data) {
     const totalLength = trendPath.node().getTotalLength();
     trendPath.attr("stroke-dasharray", totalLength)
         .attr("stroke-dashoffset", totalLength)
-        .transition().duration(1500).ease(d3.easeCubicOut)
+        .transition().duration(2200).ease(d3.easeCubicOut)
         .attr("stroke-dashoffset", 0);
 
     g.selectAll("circle")
@@ -158,7 +176,7 @@ function renderAllTimeDominance(data) {
         .attr("x", 0).attr("y", d => yBand(d.team))
         .attr("height", yBand.bandwidth()).attr("rx", 3)
         .attr("width", 0)
-        .transition().delay((d, i) => i * 60).duration(600)
+        .transition().delay((d, i) => i * 100).duration(900)
         .attr("width", d => xScale(d.appearances));
 
     const starsX = w - starSpace + 10;
@@ -170,7 +188,7 @@ function renderAllTimeDominance(data) {
         .attr("dy", "0.35em")
         .text(d => "★".repeat(d.titles))
         .style("opacity", 0)
-        .transition().delay((d, i) => i * 60 + 400).duration(400)
+        .transition().delay((d, i) => i * 100 + 600).duration(600)
         .style("opacity", 1);
 
     g.selectAll("rect.at-bar-appearances")
