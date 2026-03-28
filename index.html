@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- ===== MAP VIEW ===== -->
     <div id="map-view">
       <header id="header">
         <h1>The World Cup Atlas</h1>
@@ -72,14 +71,19 @@
           <section id="intensity-section">
             <h3>Are World Cups Getting More Aggressive?</h3>
             <p class="section-desc">
-              Cards per match rose steadily from their introduction in 1970, peaking at 2006 — infamously home to the "Battle of Nuremberg." Since then, aggression has declined as FIFA tightened disciplinary standards.
+              Cards per match rose steadily from their introduction in 1970,
+              peaking at 2006 — infamously home to the "Battle of Nuremberg."
+              Since then, aggression has declined as FIFA tightened disciplinary
+              standards.
             </p>
             <div id="intensity-chart"></div>
           </section>
           <section id="continental-section">
             <h3>Continental Advantage</h3>
             <p class="section-desc">
-              Does geography decide who lifts the trophy? When the World Cup is hosted in the Americas or Europe, the winner almost always comes from that same continent.
+              Does geography decide who lifts the trophy? When the World Cup is
+              hosted in the Americas or Europe, the winner almost always comes
+              from that same continent.
             </p>
             <div id="continental-chart"></div>
           </section>
@@ -87,7 +91,6 @@
       </div>
     </div>
 
-    <!-- ===== COUNTRY VIEW (hidden initially) ===== -->
     <div id="country-view" class="hidden">
       <nav id="country-nav">
         <button id="country-back-btn">← Back to Map</button>
@@ -100,7 +103,6 @@
       <div id="tournament-cards"></div>
     </div>
 
-    <!-- ===== DASHBOARD VIEW (hidden initially) ===== -->
     <div id="dashboard-view" class="hidden">
       <nav id="dashboard-nav">
         <button id="back-btn">← Back to Map</button>
@@ -141,10 +143,8 @@
       </div>
     </div>
 
-    <!-- ===== TOOLTIP ===== -->
     <div id="tooltip"></div>
 
-    <!-- ===== FOOTER ===== -->
     <footer>
       Data:
       <a href="https://github.com/jfjelstul/worldcup" target="_blank"
@@ -153,7 +153,6 @@
       by Joshua C. Fjelstul, Ph.D. (CC-BY-SA 4.0)
     </footer>
 
-    <!-- ===== SCRIPTS ===== -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/topojson-client@3"></script>
     <script src="js/map.js"></script>
